@@ -1,0 +1,235 @@
+    {
+        "height": 20,
+        "spacing": 5,
+        "modules-left": [
+            "group/utilities",
+            "group/brightvol",
+            "mpris",
+            "group/workspaces"
+        ],
+        "modules-center": [
+            "clock"
+        ],
+        "modules-right": [
+            "group/cpuram",
+            "group/system"
+        ],
+        "custom/openbracket": {
+            "format": "[",
+            "tooltip": false
+        },
+        "custom/closebracket": {
+            "format": "]",
+            "tooltip": false
+        },
+        "custom/split": {
+            "format": "|",
+            "tooltip": false
+        },
+        "group/utilities": {
+            "orientation": "horizontal",
+            "modules": [
+                "custom/openbracket",
+                "custom/arch",
+                "idle_inhibitor",
+                "custom/split",
+                "custom/powerprofile",
+                "custom/closebracket"
+            ]
+        },
+        "custom/arch": {
+            "format": "󰣇",
+            "tooltip": false,
+            "on-click": "pkill wofi || wofi --show drun"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            }
+        },
+        "custom/powerprofile": {
+            "exec": "~/.config/waybar/scripts/powerprofile.sh display",
+            "on-click": "~/.config/waybar/scripts/powerprofile.sh toggle",
+            "interval": 5,
+            "tooltip": true,
+            "tooltip-format": "Power Profile: {} \nClick to cycle: Efficient → Normal → Overclocked"
+        },
+        "custom/weather": {
+            "format": "{}",
+            "format-alt": "{alt}",
+            "format-alt-click": "click-left",
+            "interval": 3600,
+            "return-type": "json",
+            "exec": "$HOME/.config/waybar/scripts/weather-waybar-module.sh",
+            "exec-if": "ping openweathermap.org -c1",
+            "signal": 8
+        },
+        "mpris": {
+            "format": "[   {status_icon} | {dynamic} ]",
+            "interval": 3,
+            "dynamic-len": 40,
+            "status-icons": {
+                "playing": "▶",
+                "paused": "⏸",
+                "stopped": ""
+            },
+            "dynamic-order": [
+                "artist"
+            ]
+        },
+        "group/workspaces": {
+            "orientation": "horizontal",
+            "modules": [
+                "custom/openbracket",
+                "hyprland/workspaces",
+                "custom/closebracket"
+            ]
+        },
+        "hyprland/workspaces": {
+            "all-outputs": true,
+            "warp-on-scroll": false,
+            "enable-bar-scroll": true,
+            "disable-scroll-wraparound": true,
+            "active-only": false,
+            "format": "{icon}",
+            "format-icons": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "default": "•"
+            }
+        },
+        "group/cpuram": {
+            "orientation": "horizontal",
+            "modules": [
+                "custom/openbracket",
+                "cpu",
+                "custom/split",
+                "memory",
+                "custom/closebracket"
+            ]
+        },
+        "cpu": {
+            "format": "CPU:{usage}%",
+            "tooltip": false,
+            "interval": 2,
+            "on-click": "ghostty -e btop"
+        },
+        "memory": {
+            "format": "RAM:{}%",
+            "tooltip": false,
+            "interval": 2,
+            "on-click": "ghostty -e btop"
+        },
+        "group/brightvol": {
+            "orientation": "horizontal",
+            "modules": [
+                "custom/openbracket",
+                "pulseaudio",
+                "custom/closebracket"
+            ]
+        },
+        "pulseaudio": {
+            "tooltip-format": "Volume : {volume} %",
+            "format": " {icon} {volume}% {format_source}",
+            "format-muted": "   {format_source}",
+            "format-bluetooth": " {icon} {volume}% {format_source}",
+            "format-bluetooth-muted": " {icon}  {format_source}",
+            "format-source": "",
+            "format-source-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": [
+                    "󰕿",
+                    "󰖀",
+                    "󰕾",
+                    "  "
+                ]
+            },
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+            "on-click-right": "pwvucontrol",
+            "smooth-scrolling-threshold": 1
+        },
+        "group/system": {
+            "orientation": "horizontal",
+            "modules": [
+                "custom/openbracket",
+                // "hyprland/language",
+                // "custom/split",
+                "battery",
+                // "custom/split",
+                // "custom/swaync",
+                "custom/split",
+                "tray",
+                "custom/closebracket"
+            ]
+        },
+        "hyprland/language": {
+            "format": "{}",
+            "format-en": "EN",
+            "format-ru": "RU"
+        },
+        "clock": {
+            "format": "{:%d - %H:%M}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>",
+            "calendar": {
+                "mode": "year",
+                "mode-mon-col": 3,
+                "weeks-pos": "right",
+                "on-scroll": 1,
+                "format": {
+                    "months": "<span color='#ffead3'><b>{}</b></span>",
+                    "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                    "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                    "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                    "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+                }
+            }
+        },
+        "battery": {
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "format-full": "{icon} {capacity}%",
+            "format-charging": " {capacity}%",
+            "format-plugged": "  {capacity}%",
+            "format-icons": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "on-click": "wlogout"
+        },
+        "custom/swaync": {
+            "format": "",
+            "exec": "swaync-client -swb",
+            "on-click": "swaync-client --toggle-panel",
+            "interval": 0
+        },
+        "group/clock": {
+            "orientation": "horizontal",
+            "modules": [
+                "custom/openbracket",
+                "clock",
+                "custom/closebracket"
+            ]
+        },
+        "tray": {
+            "icon-size": 14,
+            "spacing": 10
+        }
+    }

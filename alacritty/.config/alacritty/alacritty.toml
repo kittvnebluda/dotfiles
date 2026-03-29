@@ -1,0 +1,17 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/monokai_charcoal.toml"
+]
+
+[font]
+size = 12
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[window]
+opacity = 0.80
+
+[selection]
+save_to_clipboard = true

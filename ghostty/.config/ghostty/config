@@ -1,0 +1,15 @@
+# This is the configuration file for Ghostty.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+background = #1E1E2E
+background-opacity = 0.8
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 12
+
+theme = Monokai Remastered

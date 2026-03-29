@@ -1,0 +1,9 @@
+[submodule "alacritty/.config/alacritty/themes"]
+	path = alacritty/.config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
+[submodule "tmux/.config/tmux/plugins/tmux-gruvbox"]
+	path = tmux/.config/tmux/plugins/tmux-gruvbox
+	url = https://github.com/egel/tmux-gruvbox.git
+[submodule "tmux/.config/tmux/plugins/tpm"]
+	path = tmux/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
