@@ -14,6 +14,7 @@ alias sb="source ~/.bashrc"
 alias sv="source venv/bin/activate"
 alias gs="git status"
 alias gl="git log --all --graph --decorate --date=short --pretty=format:'%C(auto)%h %ad %s%d'"
+alias pm="systemctl start nvidia-persistenced.service"
 
 create_simlink_on_dhe() {
     sudo ln -s /usr/bin/distrobox-host-exec /usr/local/bin/$1
@@ -83,12 +84,12 @@ if [[ ${CONTAINER_ID} = "ubuntu-24" ]]; then
 
     source /etc/profile.d/bash_completion.sh
     source /opt/ros/jazzy/setup.bash
-
-elif [[ ${CONTAINER_ID} = "ubuntu20" ]]; then
-    alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
 fi
 
 # direnv
 eval "$(direnv hook bash)"
 
-source '/home/litt/.bash_completions/lrl.sh'
+function mubuntu() {
+    sudo mount UUID=4f6a16b3-0e8a-4f42-871e-5b8404324e4a /mnt/ubuntu22
+    sudo mount --bind /mnt/ubuntu22/home/litt/IsaacLab /home/litt/IsaacLab
+}
