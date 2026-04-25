@@ -26,21 +26,21 @@ eval "$(pyenv init - bash)"
 
 # ROS
 export RCUTILS_COLORIZED_OUTPUT=1
-alias isb="source install/setup.bash"
-alias cb='colcon build --symlink-install'
 
 # Distrobox
-export ROS_DOMAIN_ID=0
-export ROS_VERSION=2
-export ROS_PYTHON_VERSION=3
 if [[ ${CONTAINER_ID} == "noble-ros-jazzy" ]]; then
     export ROS_DISTRO=jazzy
-
     source /etc/profile.d/bash_completion.sh
     source /opt/ros/jazzy/setup.bash
     export TERM=xterm-256color
 else
     export ROS_DISTRO=humble
+fi
+
+if [[ -n $ROS_DISTRO ]]; then
+    export ROS_DOMAIN_ID=0
+    export ROS_VERSION=2
+    export ROS_PYTHON_VERSION=3
 fi
 
 # direnv
@@ -56,4 +56,3 @@ source /etc/profile.d/bash_completion.sh
 
 alias march='mount_arch.sh'
 alias hiddify="sudo ~/Downloads/Hiddify-Linux-x64-AppImage.AppImage"
-export PATH="$HOME/.local/bin:$PATH"
