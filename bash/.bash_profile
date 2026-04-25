@@ -16,3 +16,5 @@ if
 then
     exec uwsm start hyprland-uwsm.desktop
 fi
+
+[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"

@@ -30,16 +30,30 @@ alias isb="source install/setup.bash"
 alias cb='colcon build --symlink-install'
 
 # Distrobox
-if [[ ${CONTAINER_ID} = "ubuntu-24" ]]; then
-    export QT_QPA_PLATFORM=xcb
-    export ROS_DOMAIN_ID=63
-    export ROS_VERSION=2
-    export ROS_PYTHON_VERSION=3
+export ROS_DOMAIN_ID=0
+export ROS_VERSION=2
+export ROS_PYTHON_VERSION=3
+if [[ ${CONTAINER_ID} == "noble-ros-jazzy" ]]; then
     export ROS_DISTRO=jazzy
 
     source /etc/profile.d/bash_completion.sh
     source /opt/ros/jazzy/setup.bash
+    export TERM=xterm-256color
+else
+    export ROS_DISTRO=humble
 fi
 
 # direnv
 eval "$(direnv hook bash)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+export PATH="$PATH:/home/litt/.local/bin"
+
+source /etc/profile.d/bash_completion.sh
+
+alias march='mount_arch.sh'
+alias hiddify="sudo ~/Downloads/Hiddify-Linux-x64-AppImage.AppImage"
+export PATH="$HOME/.local/bin:$PATH"
