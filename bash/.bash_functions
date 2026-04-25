@@ -40,8 +40,3 @@ y() {
     [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
     rm -f -- "$tmp"
 }
-
-mubuntu() {
-    sudo mount UUID=4f6a16b3-0e8a-4f42-871e-5b8404324e4a /mnt/ubuntu22
-    sudo mount --bind /mnt/ubuntu22/home/litt/IsaacLab /home/litt/IsaacLab
-}
