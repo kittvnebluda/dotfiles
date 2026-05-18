@@ -1,0 +1,8 @@
+require("modules.monitors")
+require("modules.autostart")
+require("modules.permissions")
+require("modules.appearance")
+require("modules.misc")
+require("modules.input")
+require("modules.keybinds")
+require("modules.windows")
