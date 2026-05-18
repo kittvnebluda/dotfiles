@@ -45,5 +45,3 @@ fi
 
 # direnv
 eval "$(direnv hook bash)"
-
-source /etc/profile.d/bash_completion.sh
