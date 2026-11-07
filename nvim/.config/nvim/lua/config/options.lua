@@ -48,3 +48,5 @@ vim.diagnostic.config({
 
 vim.opt.mouse = ""
 vim.opt.cmdheight = 0
+
+vim.opt.spelllang = { "en", "ru" }
