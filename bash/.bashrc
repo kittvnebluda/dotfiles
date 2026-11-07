@@ -17,6 +17,8 @@ export TMUX_TMPDIR="/var/tmp"
 # direnv
 eval "$(direnv hook bash)"
 
+[ -f ~/.bash_secrets ] && . ~/.bash_secrets
+
 . "$HOME/.local/share/../bin/env"
 
 # opencode
