@@ -45,3 +45,29 @@ mubuntu() {
     sudo mount UUID=4f6a16b3-0e8a-4f42-871e-5b8404324e4a /mnt/ubuntu22
     sudo mount --bind /mnt/ubuntu22/home/litt/IsaacLab /home/litt/IsaacLab
 }
+
+ccd() {
+    if [[ -z $1 ]]; then
+        echo "Usage: ccd dirname"
+        return 0
+    fi
+    mkdir -p "$1" && cd "$1" || return
+}
+
+awg0() {
+    systemctl status awg-quick@awg0.service | grep "Active: active" >/dev/null
+    srv_status=$?
+
+    case "$1" in
+    "start") sudo systemctl start awg-quick@awg0.service ;;
+    "stop") sudo systemctl stop awg-quick@awg0.service ;;
+    "") if ((srv_status == "0")); then
+        echo "Stopping awg0"
+        sudo systemctl stop awg-quick@awg0.service >/dev/null
+    else
+        echo "Starting awg0"
+        sudo systemctl start awg-quick@awg0.service >/dev/null
+    fi ;;
+    *) echo "Usage: awg0 [start|stop]" ;;
+    esac
+}
