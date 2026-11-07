@@ -16,3 +16,8 @@ export TMUX_TMPDIR="/var/tmp"
 
 # direnv
 eval "$(direnv hook bash)"
+
+. "$HOME/.local/share/../bin/env"
+
+# opencode
+export PATH=/home/litt/.opencode/bin:$PATH
