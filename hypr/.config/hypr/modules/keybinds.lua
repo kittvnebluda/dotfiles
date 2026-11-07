@@ -7,8 +7,6 @@ local telegram = "dex /usr/share/applications/org.telegram.desktop.desktop"
 local resourceMonitor = terminal .. " -e btop"
 local clipboard = terminal .. ' --title="clipse" -e "clipse"'
 
-local xdgConfig = os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config")
-
 -- Launchers
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"), { release = true })
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
