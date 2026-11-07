@@ -12,5 +12,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - bash)"
 
 if [[ ! -n ${CONTAINER_ID} ]] && uwsm check may-start; then
-    exec uwsm start hyprland-uwsm.desktop
+    exec uwsm start hyprland.desktop
 fi
