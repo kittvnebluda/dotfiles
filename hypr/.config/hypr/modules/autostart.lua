@@ -5,7 +5,9 @@
 
 -- TODO: Use HOME variable
 hl.on("hyprland.start", function()
-	hl.exec_cmd("waybar && swaync && clipse -listen")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("swaync")
+	hl.exec_cmd("clipse -listen")
 	hl.exec_cmd("swaybg -i /home/litt/Pictures/space/Orion1.jpg -m fill")
 end)
