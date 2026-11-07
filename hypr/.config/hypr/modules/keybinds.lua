@@ -1,10 +1,10 @@
 local mainMod = "SUPER"
 local terminal = "ghostty"
-local fileManager = terminal .. "-e yazi"
+local fileManager = terminal .. " -e yazi"
 local browser = "flatpak run app.zen_browser.zen"
 local bluetooth = "blueman-manager"
 local telegram = "dex /usr/share/applications/org.telegram.desktop.desktop"
-local resourceMonitor = terminal .. "-e btop"
+local resourceMonitor = terminal .. " -e btop"
 local clipboard = terminal .. ' --title="clipse" -e "clipse"'
 
 local xdgConfig = os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config")
